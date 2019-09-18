@@ -1,6 +1,7 @@
 import React from 'react';
 import Bar from './Bar.js';
 import './Graph.css';
+
 class Graph extends React.Component {
     // in controls, have a range of numbers 
     // 1 - 1000... 
@@ -20,9 +21,11 @@ class Graph extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="graph-container">
                 {this.props.array.map((value, index) => {
-                    return <Bar barValue={value} />
+                    return <Bar key={index}
+                        value={value} 
+                        totalElements={this.props.array.length} />
                 })}
             </div>
         );

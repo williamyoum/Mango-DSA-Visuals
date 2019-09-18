@@ -11,16 +11,32 @@ class App extends React.Component {
     // have the global state here
     // the array to be sorted should be in this global state
     this.state = {
-      randomValues: [1,2,4,5,6]
+      randomValues: []
     }
   }
 
-  createArraysWithRange(min, max) {
-    // create this.state.randomValues with values between this range
+  componentDidMount() {
+    this.setState({
+      randomValues: this.shuffleArray(this.createArrayWithRange(100))
+    })
   }
 
-  shuffleArray() {
-    // randomize the this.state.randomValues
+  createArrayWithRange(max) {
+    let array = []
+    for (let i = 1; i <= max; i++) {
+      array.push(i)
+    }
+
+    return array;
+  }
+
+  shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+
+    return array;
   }
 
   render() {
