@@ -11,14 +11,16 @@ class App extends React.Component {
     // have the global state here
     // the array to be sorted should be in this global state
     this.state = {
-      randomValues: []
+      array: []
     }
+
+    this.bubbleSort = this.bubbleSort.bind(this);
   }
 
   componentDidMount() {
     this.setState({
-      randomValues: this.shuffleArray(this.createArrayWithRange(100))
-    })
+      array: this.shuffleArray(this.createArrayWithRange(100))
+    });
   }
 
   createArrayWithRange(max) {
@@ -39,14 +41,36 @@ class App extends React.Component {
     return array;
   }
 
+  async bubbleSort() {
+    const array = this.state.array;
+
+    for (let end = this.state.array.length - 1; end > 0; end--) {
+      for (let i = 0; i < end; i++) {
+        if (array[i] > array[i+1]) {
+          let temp = array[i];
+          array[i] = array[i+1];
+          array[i+1] = temp;
+          this.setState({array: array});
+        }
+
+        await this.sleep(0)
+      }
+    }
+  }
+
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
   render() {
     return (
       <main>
         <Header />
+        <button onClick={this.bubbleSort}>CLICK</button>
         <section>
           {/* figure out how to call App.js function from Controls.js */}
           <Controls />
-          <Graph array={this.state.randomValues} />
+          <Graph array={this.state.array} />
         </section>
         <Footer />
       </main>

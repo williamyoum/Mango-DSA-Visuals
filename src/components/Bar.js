@@ -38,7 +38,7 @@ function Bar(props) {
     }
 
     return (
-        <div style={style}>{props.value}</div>
+        <div style={style} />
     );
 
 }
