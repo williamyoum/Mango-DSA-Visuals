@@ -2,22 +2,20 @@ import React from 'react';
 import Header from './components/Header.js'
 import Footer from './components/Footer.js'
 import Controls from './components/Controls.js'
-import Graph from './components/Graph.js'
+import Graph from './components/Graph'
+import Slider from './components/Slider' 
 import './App.css';
-import Slider from './components/slider/Slider.js'
-import 'react-rangeslider/lib/index.css'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    // have the global state here
-    // the array to be sorted should be in this global state
     this.state = {
       array: [],
       selectedArraySize: 20
     }
-
     this.bubbleSort = this.bubbleSort.bind(this);
+    this.quickSort = this.quickSort.bind(this);
+    this.handleSliderChange = this.handleSliderChange.bind(this);
   }
 
   componentDidMount() {
@@ -31,19 +29,16 @@ class App extends React.Component {
     for (let i = 1; i <= max; i++) {
       array.push(i)
     }
-
     return array;
   }
-
   shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
     }
-
     return array;
   }
-
+  
   async bubbleSort() {
     const array = this.state.array;
 
@@ -55,19 +50,28 @@ class App extends React.Component {
           array[i+1] = temp;
           this.setState({array: array});
         }
-
-        await this.sleep(0)
+        await this.sleep(0);
       }
     }
   }
+  
+  quickSort() {
+    const array = this.state.array;
 
+    // implement quick sort here
+
+    console.log(array);
+    alert("quick sort ended, check your console log to see if it is sorted properly")
+  }
   sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   handleSliderChange(event) {
-    console.log(event);
-    // this.setState({selectedArraySize: 20});
+    this.setState({
+      selectedArraySize: event.target.value,
+      array: this.shuffleArray(this.createArrayWithRange(event.target.value))
+    });
   }
 
   render() {
@@ -76,10 +80,10 @@ class App extends React.Component {
         <Header />
         <div>
             <Slider 
-              sliderValue={this.state.selectedArraySize} 
+              value={this.state.selectedArraySize} 
               handleChange={this.handleSliderChange} />
         </div>
-        <button onClick={this.bubbleSort}>CLICK</button>
+        <button onClick={this.quickSort}>CLICK</button>
         <section>
           {/* figure out how to call App.js function from Controls.js */}
           <Controls />
@@ -89,18 +93,6 @@ class App extends React.Component {
       </main>
     );
   }
-  // getSliderData () {
-
-  //   const {sliderData} = this.state
-
-  //   fetch(`${baseUrl}v1/bpi/historical/close.json?currency=${sliderData}`)
-  //     .then(response => response.json())
-  //     .then(historicalData => this.setState({historicalData}))
-  //     .catch(e => e)
-  // }
-
-
-
 }
 
 

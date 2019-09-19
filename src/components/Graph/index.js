@@ -1,7 +1,6 @@
 import React from 'react';
-import Bar from './Bar.js';
+import Bar from '../Bar.js';
 import './Graph.css';
-// import './App.css';
 
 class Graph extends React.Component {
     // in controls, have a range of numbers 
