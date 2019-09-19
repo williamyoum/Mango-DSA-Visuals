@@ -4,6 +4,11 @@ import Footer from './components/Footer.js'
 import Controls from './components/Controls.js'
 import Graph from './components/Graph.js'
 import './App.css';
+import Horizontal from './components/slider/Horizontal.js'
+import 'react-rangeslider/lib/index.css'
+
+// slider from https://www.npmjs.com/package/react-rangeslider
+
 
 class App extends React.Component {
   constructor(props) {
@@ -66,6 +71,9 @@ class App extends React.Component {
     return (
       <main>
         <Header />
+        <div>
+            <Horizontal />
+        </div>
         <button onClick={this.bubbleSort}>CLICK</button>
         <section>
           {/* figure out how to call App.js function from Controls.js */}
