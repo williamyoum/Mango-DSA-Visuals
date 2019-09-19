@@ -29,8 +29,9 @@ class Horizontal extends Component {
       <div className='slider'>
         <Slider
           min={0}
-          max={100}
+          max={1000}
           value={value}
+          ticks
           onChangeStart={this.handleChangeStart}
           onChange={this.handleChange}
           onChangeComplete={this.handleChangeComplete}
