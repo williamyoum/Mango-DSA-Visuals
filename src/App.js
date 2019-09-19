@@ -4,11 +4,8 @@ import Footer from './components/Footer.js'
 import Controls from './components/Controls.js'
 import Graph from './components/Graph.js'
 import './App.css';
-import Horizontal from './components/slider/Horizontal.js'
+import Slider from './components/slider/Slider.js'
 import 'react-rangeslider/lib/index.css'
-
-// slider from https://www.npmjs.com/package/react-rangeslider
-
 
 class App extends React.Component {
   constructor(props) {
@@ -16,7 +13,8 @@ class App extends React.Component {
     // have the global state here
     // the array to be sorted should be in this global state
     this.state = {
-      array: []
+      array: [],
+      selectedArraySize: 20
     }
 
     this.bubbleSort = this.bubbleSort.bind(this);
@@ -24,7 +22,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.setState({
-      array: this.shuffleArray(this.createArrayWithRange(100))
+      array: this.shuffleArray(this.createArrayWithRange(250))
     });
   }
 
@@ -67,12 +65,19 @@ class App extends React.Component {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
+  handleSliderChange(event) {
+    console.log(event);
+    // this.setState({selectedArraySize: 20});
+  }
+
   render() {
     return (
       <main>
         <Header />
         <div>
-            <Horizontal />
+            <Slider 
+              sliderValue={this.state.selectedArraySize} 
+              handleChange={this.handleSliderChange} />
         </div>
         <button onClick={this.bubbleSort}>CLICK</button>
         <section>
@@ -84,6 +89,19 @@ class App extends React.Component {
       </main>
     );
   }
+  // getSliderData () {
+
+  //   const {sliderData} = this.state
+
+  //   fetch(`${baseUrl}v1/bpi/historical/close.json?currency=${sliderData}`)
+  //     .then(response => response.json())
+  //     .then(historicalData => this.setState({historicalData}))
+  //     .catch(e => e)
+  // }
+
+
+
 }
+
 
 export default App;
