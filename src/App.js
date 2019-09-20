@@ -13,6 +13,7 @@ class App extends React.Component {
       array: [],
       selectedArraySize: 20
     }
+    // bindings
     this.bubbleSort = this.bubbleSort.bind(this);
     this.quickSort = this.quickSort.bind(this);
     this.handleSliderChange = this.handleSliderChange.bind(this);
@@ -54,15 +55,43 @@ class App extends React.Component {
       }
     }
   }
+
+
   
-  quickSort() {
-    const array = this.state.array;
-
+    quickSort(array, p, r) {
+    //const array = this.state.array;
     // implement quick sort here
-
-    console.log(array);
-    alert("quick sort ended, check your console log to see if it is sorted properly")
+        if (p < r){
+        let q = partition(array, p, r);
+        this.quickSort(array, p, q - 1);
+        this.quickSort(array, q + 1, r);
+        }
+      function partition(array,p,r){
+        // set a pivot
+        let pivot = array[r];
+        let i = p-1;
+          for(let j = p; j > r-1; j++){
+                if(array[i] <= pivot){
+                  // swaps
+                  i = i + 1;
+                  let temp = array[i];
+                  array[i] = array[j];
+                  array[j] = temp;
+                  
+                }
+                let temp2 = array[i+1];
+                array[i+1] = array[r];
+                array[r] = temp2;
+            }
+          // return i + 1
+          // return i + 1;
+        }
+      this.setState({array:array}); // this updates the state. updating the state will take care of the bars sorting visually.
+      console.log(array);
+      alert("quick sort ended, check your console log to see if it is sorted properly");
   }
+
+
   sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
