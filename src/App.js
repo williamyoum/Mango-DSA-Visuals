@@ -56,6 +56,7 @@ class App extends React.Component {
       const array = this.state.array;
       //const p = array[0];
       //const r = array[array.lastIndexOf];
+      qSort(); // just added this.
       function qSort(array, low, high){
       // implement quick sort here
           if (low < high){
@@ -63,28 +64,28 @@ class App extends React.Component {
           this.qSort(array, low, part - 1);
           this.qSort(array, part + 1, high);
           }
-        function partition(array,low,high){
-          let index = low - 1;
-          // set a pivot
-          let pivot = array[high];
-            for(let curr = low; curr < high; curr++){
-              // if array[index] is less than pivot, 
-              // then leave it where it is and iterate index
-                  if(array[curr] < pivot){
-                    index++;
-                    // swap elements
-                    let temp = array[index];
-                    array[index] = array[curr];
-                    array[curr] = temp;
-                  }
-              }
-              // if array[index] is greater than pivot, we gotta swap
-              // swap i + 1 and upper bound element
-              let temp = array[index+1];
-                  array[index+1] = array[high];
-                  array[high] = temp;
-            return index+1;
-        }
+      }
+      function partition(array,low,high){
+        let index = low - 1;
+        // set a pivot
+        let pivot = array[high];
+          for(let curr = low; curr < high; curr++){
+            // if array[index] is less than pivot, 
+            // then leave it where it is and iterate index
+                if(array[curr] < pivot){
+                  index++;
+                  // swap elements
+                  let temp = array[index];
+                  array[index] = array[curr];
+                  array[curr] = temp;
+                }
+            }
+            // if array[index] is greater than pivot, we gotta swap
+            // swap i + 1 and upper bound element
+            let temp = array[index+1];
+                array[index+1] = array[high];
+                array[high] = temp;
+          return index+1;
       }
       this.setState({array:array}); 
       // this updates the state. updating the state will take care of the bars sorting visually.
