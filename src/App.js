@@ -70,7 +70,8 @@ class App extends React.Component {
         // set a pivot
         let pivot = array[r];
         let i = p-1;
-          for(let j = p; j > r-1; j++){
+          for(let j = p; j >= r-1; j++){
+            // if array[i] is less than pivot, then leave it where it is and iterate i
                 if(array[i] <= pivot){
                   // swaps
                   i = i + 1;
@@ -83,8 +84,7 @@ class App extends React.Component {
                 array[i+1] = array[r];
                 array[r] = temp2;
             }
-          // return i + 1
-          // return i + 1;
+          return array[i+1];
         }
       this.setState({array:array}); // this updates the state. updating the state will take care of the bars sorting visually.
       console.log(array);
