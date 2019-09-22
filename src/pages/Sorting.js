@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Slider from '../components/Slider';
 import Controls from '../components/Controls';
-import Graph from '../components/Graph';
+import Graph from './Graph.js';
 
 class SortingPage extends Component {
     constructor(props) {
