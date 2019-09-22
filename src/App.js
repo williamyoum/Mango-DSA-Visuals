@@ -1,127 +1,24 @@
 import React from 'react';
 import Header from './components/Header.js'
 import Footer from './components/Footer.js'
-import Controls from './components/Controls.js'
-import Graph from './components/Graph'
-import Slider from './components/Slider' 
+import GraphPage from './pages/Graph'
+import SortingPage from './pages/Sorting'
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      array: [],
-      selectedArraySize: 20
-    }
-    // bindings
-    this.bubbleSort = this.bubbleSort.bind(this);
-    this.quickSort = this.quickSort.bind(this);
-    this.handleSliderChange = this.handleSliderChange.bind(this);
-    //this.qSort = this.qSort.bind(this);
-  }
-  componentDidMount() {
-    this.setState({
-      array: this.shuffleArray(this.createArrayWithRange(250))
-    });
-  }
-  createArrayWithRange(max) {
-    let array = []
-    for (let i = 1; i <= max; i++) {
-      array.push(i)
-    }
-    return array;
-  }
-  shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  }
-  async bubbleSort() {
-    const array = this.state.array;
-    for (let end = this.state.array.length - 1; end > 0; end--) {
-      for (let i = 0; i < end; i++) {
-        if (array[i] > array[i+1]) {
-          let temp = array[i];
-          array[i] = array[i+1];
-          array[i+1] = temp;
-          this.setState({array: array});
-        }
-        await this.sleep(0);
-      }
-    }
-  }
-    quickSort() {
-      const array = this.state.array;
-      //const p = array[0];
-      //const r = array[array.lastIndexOf];
-      qSort(); // just added this.
-      function qSort(array, low, high){
-      // implement quick sort here
-          if (low < high){
-          let part = partition(array, low, high);
-          this.qSort(array, low, part - 1);
-          this.qSort(array, part + 1, high);
-          }
-      }
-      function partition(array,low,high){
-        let index = low - 1;
-        // set a pivot
-        let pivot = array[high];
-          for(let curr = low; curr < high; curr++){
-            // if array[index] is less than pivot, 
-            // then leave it where it is and iterate index
-                if(array[curr] < pivot){
-                  index++;
-                  // swap elements
-                  let temp = array[index];
-                  array[index] = array[curr];
-                  array[curr] = temp;
-                }
-            }
-            // if array[index] is greater than pivot, we gotta swap
-            // swap i + 1 and upper bound element
-            let temp = array[index+1];
-                array[index+1] = array[high];
-                array[high] = temp;
-          return index+1;
-      }
-      this.setState({array:array}); 
-      // this updates the state. updating the state will take care of the bars sorting visually.
-      console.log(array);
-      alert("quick sort ended, check your console log to see if it is sorted properly");
-  }
-  sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-
-  handleSliderChange(event) {
-    this.setState({
-      selectedArraySize: event.target.value,
-      array: this.shuffleArray(this.createArrayWithRange(event.target.value))
-    });
-  }
-
-  render() {
-    return (
-      <main>
+function App() {
+  return (
+    <Router>
+      <div>
         <Header />
-        <div>
-            <Slider 
-              value={this.state.selectedArraySize} 
-              handleChange={this.handleSliderChange} />
-        </div>
-        <button onClick={this.quickSort}>CLICK</button>
-        <section>
-          {/* figure out how to call App.js function from Controls.js */}
-          <Controls />
-          <Graph array={this.state.array} />
-        </section>
+        <main>
+          <Route path="/" exact component={SortingPage} />
+          <Route path="/graph/" component={GraphPage} />
+        </main>
         <Footer />
-      </main>
-    );
-  }
+      </div>
+    </Router>
+  );
 }
 
 

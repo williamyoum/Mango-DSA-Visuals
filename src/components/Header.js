@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import mango from '../mango.svg'
 
 function Header() {
@@ -26,6 +27,8 @@ function Header() {
     <nav style={navStyle}>
       <img style={logoStyle} src={mango} alt="Logo" />
       <div style={titleStyle}>Mango Algorithm Visualizer</div>
+      <Link to="/">Sorting Algos</Link>
+      <Link to="/graph">Graph Algos</Link>
     </nav>
   );
 }
