@@ -2,7 +2,8 @@ import React from 'react';
 import Header from './components/Header.js'
 import Footer from './components/Footer.js'
 import GraphPage from './pages/Graph'
-import SortingPage from './pages/Sorting'
+import HomePage from './pages/Home'
+import SortPage from './pages/Sort'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
 
@@ -12,8 +13,9 @@ function App() {
       <div>
         <Header />
         <main>
-          <Route path="/" exact component={SortingPage} />
-          <Route path="/graph/" component={GraphPage} />
+          <Route path="/Home/" component={HomePage} />
+          <Route path="/Sort/" component={SortPage} />
+          <Route path="/Graph/" component={GraphPage} />
         </main>
         <Footer />
       </div>

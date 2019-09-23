@@ -12,12 +12,10 @@ function Header() {
     boxShadow: '0 4px 2px -2px gray',
     marginBottom: '10px'
   }
-
   const logoStyle = {
     height: '100%',
     marginRight: '20px'
   }
-
   const titleStyle = {
     fontWeight: 'bold',
     fontSize: '1.5rem'
@@ -26,13 +24,10 @@ function Header() {
     <nav style={navStyle}>
       <img style={logoStyle} src={mango} alt="Logo" />
       <div style={titleStyle}>Mango Algorithm Visualizer</div>
-      <a href="App.js">Home</a>
-
-      <div id = "sortDiv"><Link to="/Sorting">Sorting Algos</Link></div>
-      <div id = "graphDiv"><Link to="/graph">Graph Algos</Link></div>
-      
+      <div id = "homeDiv"><Link to="/Home">Home</Link></div>
+      <div id = "sortDiv"><Link to="/Sort">Sorting Algos</Link></div>
+      <div id = "graphDiv"><Link to="/Graph">Graph Algos</Link></div>
     </nav>
   );
 }
-
 export default Header;
