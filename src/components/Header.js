@@ -22,13 +22,15 @@ function Header() {
     fontWeight: 'bold',
     fontSize: '1.5rem'
   }
-
   return (
     <nav style={navStyle}>
       <img style={logoStyle} src={mango} alt="Logo" />
       <div style={titleStyle}>Mango Algorithm Visualizer</div>
-      <Link to="/">Sorting Algos</Link>
-      <Link to="/graph">Graph Algos</Link>
+      <a href="App.js">Home</a>
+
+      <div id = "sortDiv"><Link to="/Sorting">Sorting Algos</Link></div>
+      <div id = "graphDiv"><Link to="/graph">Graph Algos</Link></div>
+      
     </nav>
   );
 }
