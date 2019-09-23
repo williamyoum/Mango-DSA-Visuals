@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Slider from '../components/Slider';
 import Controls from '../components/Controls';
 import Graph from './Graph.js';
+// import Bar from '../components/Bar.js';
 
 class SortPage extends Component {
     constructor(props) {
@@ -50,8 +51,6 @@ class SortPage extends Component {
     }
     quickSort() {
         const array = this.state.array;
-        //const p = array[0];
-        //const r = array[array.lastIndexOf];
         qSort(array, 0, array.length - 1); // just added this.
         function qSort(array, low, high) {
             // implement quick sort here
@@ -84,6 +83,7 @@ class SortPage extends Component {
             return index + 1;
         }
         this.setState({ array: array });
+
         // this updates the state. updating the state will take care of the bars sorting visually.
     }
     sleep(ms) {
@@ -105,7 +105,7 @@ class SortPage extends Component {
                             value={this.state.selectedArraySize}
                             handleChange={this.handleSliderChange} />
                     </div>
-                    <button onClick={this.quickSort}>CLICK</button>
+                    <button onClick={this.quickSort}>click for quicksort</button>
                     <section>
                         <Controls />
                         <Graph array={this.state.array} />

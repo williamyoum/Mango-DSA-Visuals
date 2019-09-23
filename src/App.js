@@ -6,6 +6,7 @@ import HomePage from './components/Home/Home'
 import SortPage from './pages/Sort'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
+import Bar from './components/Bar'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Header />
         <main>
           {/* page routes */}
+          <Bar />
           <Route path="/Home/" component={HomePage} />
           <Route path="/Sort/" component={SortPage} />
           <Route path="/Graph/" component={GraphPage} />

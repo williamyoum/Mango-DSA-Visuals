@@ -48,7 +48,7 @@ class Dropdown extends React.Component {
                     <div className="button" onClick={this.showDropdownMenu}> Sorting Algos </div>
                     {this.state.displayMenu ? (
                         <ul>
-                            <li><a href="./Sorting">Sorting Algorithms</a></li>
+                            <li><a href="./Sort">Sorting Algorithms</a></li>
                             <li><a href="./Graph">Graphing Algorithms</a></li>
                             
                         </ul>

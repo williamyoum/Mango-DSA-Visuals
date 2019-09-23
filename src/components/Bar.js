@@ -34,11 +34,14 @@ function Bar(props) {
     const style = {
         height: heightValue + '%',
         width: widthValue + '%',
-        backgroundColor: getBarColor(props.value, props.totalElements)
+        backgroundColor: getBarColor(props.value, props.totalElements),
     }
 
+
     return (
-        <div style={style} />
+        <div>
+            <div style={style} />
+        </div>
     );
 
 }
