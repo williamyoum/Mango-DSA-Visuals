@@ -1,15 +1,15 @@
 import React from 'react';
-import DropDown from '../dropdownmenu/Dropdown.js'
-
+import DropDown from '../../dropdownmenu/Dropdown.js'
+import './Home.css';
 class HomePage extends React.Component {
     render() {
       return (
         <div> 
               <div id = "homeDiv">
-                <p>This is the home page</p>
+                <p>Home Page</p>
 
               </div>
-              <div>
+              <div className = "dropdown-container">
                   <DropDown />
               </div>
         </div>

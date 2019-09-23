@@ -11,10 +11,8 @@ class Graph extends React.Component {
         // depending on the sorting algo it will sort it realtime
         // every time it does one op it will update the new state
         // see the visual update
-
         // create controls for min and max range
         // create buttons for creation of arr
-    
     // state is important bc when changes made to state, react knows when changes are made and re-render
     // without you having to tell it to
     // 
