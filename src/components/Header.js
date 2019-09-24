@@ -24,9 +24,9 @@ function Header() {
     <nav style={navStyle}>
       <img style={logoStyle} src={mango} alt="Logo" />
       <div style={titleStyle}>Mango Algorithm Visualizer</div>
-      <div id = "homeDiv"><Link to="/Home">Home</Link></div>
-      <div id = "sortDiv"><Link to="/Sort">Sorting Algos</Link></div>
-      <div id = "graphDiv"><Link to="/Graph">Graph Algos</Link></div>
+      <div id ="homeDiv"><Link to="/Home">Home</Link></div>
+      {/* <div id = "sortDiv"><Link to="/Sort">Sorting Algos</Link></div>
+      <div id = "graphDiv"><Link to="/Graph">Graph Algos</Link></div> */}
     </nav>
   );
 }

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Slider from '../components/Slider';
 import Controls from '../components/Controls';
-import Graph from './Graph.js';
-// import Bar from '../components/Bar.js';
+// import Graph from './Graph.js';
+import Bar from '../components/Bar.js';
 
 class SortPage extends Component {
     constructor(props) {
@@ -46,6 +46,7 @@ class SortPage extends Component {
                     this.setState({ array: array });
                 }
                 await this.sleep(0);
+                console.log(this.state.array);
             }
         }
     }
@@ -74,6 +75,7 @@ class SortPage extends Component {
                     array[index] = array[curr];
                     array[curr] = temp;
                 }
+                
             }
             // if array[index] is greater than pivot, we gotta swap
             // swap i + 1 and upper bound element
@@ -81,9 +83,11 @@ class SortPage extends Component {
             array[index + 1] = array[high];
             array[high] = temp;
             return index + 1;
+            
         }
         this.setState({ array: array });
-
+        prompt('Check console');
+        console.log(this.state.array);
         // this updates the state. updating the state will take care of the bars sorting visually.
     }
     sleep(ms) {
@@ -100,15 +104,17 @@ class SortPage extends Component {
             <div>
                 <div>Sort Page</div>
                 <div>
-                    <div>
+                    <div> 
                         <Slider
                             value={this.state.selectedArraySize}
                             handleChange={this.handleSliderChange} />
                     </div>
                     <button onClick={this.quickSort}>click for quicksort</button>
+                    <button onClick={this.bubbleSort}>click for bubbleSort</button>
                     <section>
                         <Controls />
-                        <Graph array={this.state.array} />
+                        <Bar value = {this.state.array}/>
+                        {/* <Graph array={this.state.array} /> */}
                     </section>
                 </div>
             </div>

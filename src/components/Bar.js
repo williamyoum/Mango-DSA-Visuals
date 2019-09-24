@@ -36,8 +36,6 @@ function Bar(props) {
         width: widthValue + '%',
         backgroundColor: getBarColor(props.value, props.totalElements),
     }
-
-
     return (
         <div>
             <div style={style} />

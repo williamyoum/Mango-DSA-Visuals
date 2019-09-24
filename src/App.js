@@ -1,12 +1,12 @@
 import React from 'react';
 import Header from './components/Header.js'
 import Footer from './components/Footer.js'
-import GraphPage from './pages/Graph'
+import Graph from './pages/Graph'
 import HomePage from './components/Home/Home'
-import SortPage from './pages/Sort'
+import Sort from './pages/Sort'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
-import Bar from './components/Bar'
+// import Bar from './components/Bar'
 
 function App() {
   return (
@@ -14,11 +14,14 @@ function App() {
       <div>
         <Header />
         <main>
+          {/* <Bar value = {this.state.array}/> */}
+
+
+
           {/* page routes */}
-          <Bar />
           <Route path="/Home/" component={HomePage} />
-          <Route path="/Sort/" component={SortPage} />
-          <Route path="/Graph/" component={GraphPage} />
+          <Route path="/Sort/" component={Sort} />
+          <Route path="/Graph/" component={Graph} />
         </main>
         <Footer />
       </div>
