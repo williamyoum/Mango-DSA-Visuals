@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Slider from '../components/Slider';
 import Controls from '../components/Controls';
-import Graph from './Graph.js';
-import Bar from '../components/Bar.js';
+import Graph from '../components/Graph';
 
 class SortPage extends Component {
     constructor(props) {
@@ -75,7 +74,7 @@ class SortPage extends Component {
                     array[index] = array[curr];
                     array[curr] = temp;
                 }
-                
+
             }
             // if array[index] is greater than pivot, we gotta swap
             // swap i + 1 and upper bound element
@@ -83,7 +82,7 @@ class SortPage extends Component {
             array[index + 1] = array[high];
             array[high] = temp;
             return index + 1;
-            
+
         }
         this.setState({ array: array });
         prompt('Check console');
@@ -102,21 +101,17 @@ class SortPage extends Component {
     render() {
         return (
             <div>
-                <div>Sort Page</div>
                 <div>
-                    <div> 
-                        <Bar />
-                        <Slider
-                            value={this.state.selectedArraySize}
-                            handleChange={this.handleSliderChange} />
-                    </div>
-                    <button onClick={this.quickSort}>click for quicksort</button>
-                    <button onClick={this.bubbleSort}>click for bubbleSort</button>
-                    <section>
-                        <Controls />
-                        <Graph array={this.state.array} />
-                    </section>
+                    <Slider
+                        value={this.state.selectedArraySize}
+                        handleChange={this.handleSliderChange} />
                 </div>
+                <button onClick={this.quickSort}>click for quicksort</button>
+                <button onClick={this.bubbleSort}>click for bubbleSort</button>
+                <section>
+                    <Controls />
+                    <Graph array={this.state.array} />
+                </section>
             </div>
         )
     }

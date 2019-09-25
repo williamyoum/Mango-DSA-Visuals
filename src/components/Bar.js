@@ -37,9 +37,7 @@ function Bar(props) {
         backgroundColor: getBarColor(props.value, props.totalElements),
     }
     return (
-        <div>
-            <div style={style} />
-        </div>
+        <div style={style} />
     );
 
 }
