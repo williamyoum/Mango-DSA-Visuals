@@ -48,9 +48,8 @@ class Dropdown extends React.Component {
                     <div className="button" onClick={this.showDropdownMenu}> Sorting Algos </div>
                     {this.state.displayMenu ? (
                         <ul>
-                            <li><a href="./Sort">Sorting Algorithms</a></li>
-                            <li><a href="./Graph">Graphing Algorithms</a></li>
-                            
+                            <li><a href="./Sort">Bubble Sort</a></li>
+                            <li><a href="./Sort">Quick Sort</a></li>
                         </ul>
                     ) :
                         (
@@ -58,23 +57,6 @@ class Dropdown extends React.Component {
                         )
                     }
                 </div>
-
-                {/* <div id="Graph Algos">
-                    <div className="dropdown" style={{ background: "#ffbe32", width: "200px" }} >
-                        <div className="button" onClick={this.showDropdownMenu}> Graphing Algos </div>
-                        {this.state.displayMenu ? (
-                            <ul>
-                                <li><a href="#Bubble Sort">DFS</a></li>
-                                <li><a href="#Quick Sort">BFS</a></li>
-                            </ul>
-                        ) :
-                            (
-                                null
-                            )
-                        }
-                    </div></div> */}
-
-
             </div>
 
         );

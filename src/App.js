@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './components/Header.js'
 import Footer from './components/Footer.js'
 import Graph from './pages/Graph'
-import HomePage from './components/Home/Home'
+import HomePage from './pages/Home'
 import Sort from './pages/Sort'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
@@ -15,13 +15,10 @@ function App() {
         <Header />
         <main>
           {/* <Bar value = {this.state.array}/> */}
-
-
-
           {/* page routes */}
-          <Route path="/Home/" component={HomePage} />
-          <Route path="/Sort/" component={Sort} />
-          <Route path="/Graph/" component={Graph} />
+          <Route path="/home/" component={HomePage} />
+          <Route path="/sort/" component={Sort} />
+          <Route path="/graph/" component={Graph} />
         </main>
         <Footer />
       </div>

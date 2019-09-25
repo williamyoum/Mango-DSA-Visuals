@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Slider from '../components/Slider';
+// import Slider from '../components/Slider';
 import Controls from '../components/Controls';
 import Graph from '../components/Graph';
 
@@ -14,6 +14,7 @@ class SortPage extends Component {
         this.bubbleSort = this.bubbleSort.bind(this);
         this.quickSort = this.quickSort.bind(this);
         this.handleSliderChange = this.handleSliderChange.bind(this);
+        this.shuffleArray = this.shuffleArray.bind(this);
     }
     componentDidMount() {
         this.setState({
@@ -31,6 +32,7 @@ class SortPage extends Component {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
+            this.setState({array : array});
         }
         return array;
     }
@@ -103,12 +105,29 @@ class SortPage extends Component {
         return (
             <div>
                 <div>
-                    <Slider
+                    {/* <Slider
                         value={this.state.selectedArraySize}
-                        handleChange={this.handleSliderChange} />
+                        handleChange={this.handleSliderChange} /> */}
                 </div>
-                <button onClick={this.quickSort}>click for quicksort</button>
-                <button onClick={this.bubbleSort}>click for bubbleSort</button>
+                {/* onClick of dropdownlist... 
+                        if the bubble sort was clicked,
+                        then make the chosenSort = bubbleSort */}
+                {/* onClick of dropdownlist... 
+                        if the quick sort was clicked,
+                        then make the chosenSort = quickSort */}     
+                {/* This button is structured this way because the sorts are in one component */}
+                {/* <div>
+                    const chosenSort;
+                    if(selected == #action1){
+                        chosenSort = this.bubbleSort;
+                    }
+                    else{
+                        chosenSort = this.quickSort;
+                    }
+                </div> */}
+                <button onClick={this.quickSort}>Sort!</button>
+                <button onClick={this.shuffleArray}>Let's Shuffle!</button>
+                {/* <button onClick={this.bubbleSort}>click for bubbleSort</button> */}
                 <section>
                     <Controls />
                     <Graph array={this.state.array} />

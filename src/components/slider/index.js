@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from './node_modules/react'
 
-class Slider extends Component {  
+class Slider extends Component {
   render () {
     return (
       <div>
