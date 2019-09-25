@@ -7,7 +7,7 @@ class Slider extends Component {
         <input 
           type="range" 
           min="0" 
-          max="100" 
+          max="1000" 
           value={this.props.value} 
           onChange={this.props.handleChange}
           step="1"/>

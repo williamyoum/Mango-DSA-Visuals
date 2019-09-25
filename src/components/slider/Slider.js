@@ -1,6 +1,7 @@
 import React, { Component } from './node_modules/react'
 
-class Slider extends Component {  render () {
+class Slider extends Component {  
+  render () {
     return (
       <div>
         <input 
@@ -8,7 +9,7 @@ class Slider extends Component {  render () {
           min="0" 
           max="1000" 
           value={this.props.sliderValue} 
-          onChange={this.provaluehange}
+          onChange={this.provaluechange}
           step="1"/>
           {this.props.sliderValue}
       </div>
