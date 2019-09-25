@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Slider from '../components/Slider';
 import Controls from '../components/Controls';
-// import Graph from './Graph.js';
+import Graph from './Graph.js';
 import Bar from '../components/Bar.js';
 
 class SortPage extends Component {
@@ -105,6 +105,7 @@ class SortPage extends Component {
                 <div>Sort Page</div>
                 <div>
                     <div> 
+                        <Bar />
                         <Slider
                             value={this.state.selectedArraySize}
                             handleChange={this.handleSliderChange} />
@@ -113,8 +114,7 @@ class SortPage extends Component {
                     <button onClick={this.bubbleSort}>click for bubbleSort</button>
                     <section>
                         <Controls />
-                        <Bar value = {this.state.array}/>
-                        {/* <Graph array={this.state.array} /> */}
+                        <Graph array={this.state.array} />
                     </section>
                 </div>
             </div>
