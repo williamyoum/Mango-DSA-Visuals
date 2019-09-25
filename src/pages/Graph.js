@@ -11,13 +11,8 @@ class Graph extends Component {
                             value={value}
                             totalElements={this.props.array.length} />
                     })}
-
-                    <div>Graph</div>
-                <Bar />
                 {/* <Controls /> */}
             </div>
-              
-            
         )
     }
 }
