@@ -49,18 +49,20 @@ class SortPage extends Component {
             }
         }
     }
-    quickSort() {
+    async quickSort() {
+        const that = this;
         const array = this.state.array;
-        qSort(array, 0, array.length - 1); // just added this.
-        function qSort(array, low, high) {
+        await qSort(array, 0, array.length - 1); // just added this.
+
+        async function qSort(array, low, high) {
             // implement quick sort here
             if (low < high) {
-                let part = partition(array, low, high);
-                qSort(array, low, part - 1);
-                qSort(array, part + 1, high);
+                let part = await partition(array, low, high);
+                await qSort(array, low, part - 1);
+                await qSort(array, part + 1, high);
             }
         }
-        function partition(array, low, high) {
+        async function partition(array, low, high) {
             let index = low - 1;
             // set a pivot
             let pivot = array[high];
@@ -73,6 +75,8 @@ class SortPage extends Component {
                     let temp = array[index];
                     array[index] = array[curr];
                     array[curr] = temp;
+                    that.setState({ array: array });
+                    await that.sleep(50);
                 }
 
             }
@@ -84,9 +88,6 @@ class SortPage extends Component {
             return index + 1;
 
         }
-        this.setState({ array: array });
-        prompt('Check console');
-        console.log(this.state.array);
         // this updates the state. updating the state will take care of the bars sorting visually.
     }
     sleep(ms) {
