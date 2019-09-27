@@ -1,21 +1,19 @@
 import React from 'react';
-import DropDown from '../components/Shared/Dropdown.js'
-// import 'src/components/Home/Home.css';
+// import Footer from '../components/Footer.js'
+// import Dropdown from '../components/Shared/Dropdown.js';
+import Header from '../components/Header.js';
 
 class Home extends React.Component {
-    render() {
-      return (
-        <div>
-              <div id = "homeDiv">
-                <p>Home</p>
-              </div>
-              <div className = "dropdown-container">
-                  {/* <DropDown /> */}
-              </div>
-        </div>
-       
-      );
-    }
+  render() {
+    return (
+      <div>
+        <Header />
+          {/* <p>Home</p> */}
+        {/* <Footer /> */}
+      </div>
+
+    );
+  }
 }
 
 export default Home;

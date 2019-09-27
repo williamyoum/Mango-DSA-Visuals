@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import mango from '../mango.svg'
+import Controls from '../components/Shared/Controls'
 
 function Header() {
   const navStyle = {
     display: 'flex',
     alignItems: 'center',
     width: '100%',
-    height: '60px',
+    height: '100x',
     padding: '10px',
     boxShadow: '0 4px 2px -2px gray',
     marginBottom: '10px'
@@ -20,13 +21,17 @@ function Header() {
     fontWeight: 'bold',
     fontSize: '1.5rem'
   }
+  
   return (
     <nav style={navStyle}>
-      <img style={logoStyle} src={mango} alt="Logo" />
-      <div style={titleStyle}>Mango Algorithm Visualizer</div>
-      <div id ="homeDiv"><Link to="/Home">Home</Link></div>
-      {/* <div id = "sortDiv"><Link to="/Sort">Sorting Algos</Link></div>
-      <div id = "graphDiv"><Link to="/Graph">Graph Algos</Link></div> */}
+      <a href="/">
+        <img style={logoStyle} src={mango} alt="Logo" />
+        
+      </a>
+      <div style={titleStyle}>Mango</div>
+      <Link to="/Sort">Sort Algo</Link>
+      <Link to="/Graph">Graph Algo</Link>         
+      <Controls />
     </nav>
   );
 }

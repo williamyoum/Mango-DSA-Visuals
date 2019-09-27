@@ -8,8 +8,8 @@ import './style.css';
 //import bubbleSort from './Sort';
 // from skptricks
 class Dropdown extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             displayMenu: false,
         };
@@ -30,26 +30,12 @@ class Dropdown extends React.Component {
     }
     render() {
         return (
-            // try to implement a drop down within a drop down
-            // subitems
-            // drop down list for sorting algo + graphing algos...
-            // sorting algos:
-                // bubble sort
-                // quick sort
-            // graphing algos:
-                    // etc.
-            
-            // routes
-            // <Route path="/" exact component={SortPage} />
-            // <Route path="/graph/" component={GraphPage} />
-
             <div id="Algorithm Type">
                 <div className="dropdown" style={{ background: "#ffbe32", width: "200px" }} >
                     <div className="button" onClick={this.showDropdownMenu}> Sorting Algos </div>
                     {this.state.displayMenu ? (
                         <ul>
-                            <li><a href="./Sort">Bubble Sort</a></li>
-                            <li><a href="./Sort">Quick Sort</a></li>
+                            <li><a href="./{whatPage}">item1</a></li>
                         </ul>
                     ) :
                         (

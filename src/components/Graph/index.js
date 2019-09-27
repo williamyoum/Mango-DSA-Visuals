@@ -1,5 +1,5 @@
 import React from 'react';
-import Bar from '../Bar.js';
+import Bar from '../Bar/Bar.js';
 import './Graph.css';
 
 class Graph extends React.Component {

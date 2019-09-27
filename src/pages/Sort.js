@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import Slider from '../components/Slider';
-import Controls from '../components/Controls';
+// import Controls from '../components/Shared/Controls';
 import Graph from '../components/Graph';
 
 class SortPage extends Component {
@@ -125,11 +125,12 @@ class SortPage extends Component {
                         chosenSort = this.quickSort;
                     }
                 </div> */}
+                {/* move these to controls.
                 <button onClick={this.quickSort}>Sort!</button>
-                <button onClick={this.shuffleArray}>Let's Shuffle!</button>
+                <button onClick={this.shuffleArray}>Let's Shuffle!</button> */}
                 {/* <button onClick={this.bubbleSort}>click for bubbleSort</button> */}
                 <section>
-                    <Controls />
+                    {/* <Controls /> */}
                     <Graph array={this.state.array} />
                 </section>
             </div>
