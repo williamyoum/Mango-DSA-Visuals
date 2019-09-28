@@ -34,7 +34,7 @@ function Bar(props) {
     const style = {
         height: heightValue + '%',
         width: widthValue + '%',
-        backgroundColor: getBarColor(props.value, props.totalElements),
+        backgroundColor: props.highlight ? "red" : getBarColor(props.value, props.totalElements),
     }
     return (
         <div style={style} />

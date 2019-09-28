@@ -7,8 +7,10 @@ class Graph extends React.Component {
         return (
             <div className="graph-container">
                 {this.props.array.map((value, index) => {
+                    const isHighlighted = this.props.highlight.includes(value);
                     return <Bar key={index}
                         value={value} 
+                        highlight={isHighlighted}
                         totalElements={this.props.array.length} />
                 })}
             </div>

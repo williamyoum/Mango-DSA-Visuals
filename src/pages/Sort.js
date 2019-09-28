@@ -9,17 +9,19 @@ class SortPage extends Component {
         super(props);
         this.state = {
             array: [],
-            selectedArraySize: 20
+            comparingIndexes: [],
+            selectedArraySize: 250
         }
         // bindings
         this.bubbleSort = this.bubbleSort.bind(this);
         this.quickSort = this.quickSort.bind(this);
+        this.newQuickSort = this.newQuickSort.bind(this);
         this.handleSliderChange = this.handleSliderChange.bind(this);
         this.shuffleArray = this.shuffleArray.bind(this);
     }
     componentDidMount() {
         this.setState({
-            array: this.shuffleArray(this.createArrayWithRange(250))
+            array: this.shuffleArray(this.createArrayWithRange(this.state.selectedArraySize))
         });
     }
     createArrayWithRange(max) {
@@ -48,15 +50,68 @@ class SortPage extends Component {
                     this.setState({ array: array });
                 }
                 await this.sleep(0);
-                console.log(this.state.array);
             }
         }
     }
+
+    async newQuickSort() {
+        const that = this;
+
+        let comparisonCount = 0;
+        const sortItQuick = async (array, left, right) => {
+            if (left >= right) return;
+
+            // choose pivot
+            const pivot = array[right];
+            const seperation = await partition(array, left, right, pivot);
+
+            await sortItQuick(array, left, seperation - 1);
+            await sortItQuick(array, seperation, right);
+
+        }
+
+        const partition = async (array, left, right, pivot) => {
+            while (left < right) {
+                // move left pointer until it should be moved (it is bigger than pivot)
+                while (array[left] < pivot) {
+                    left++;
+                }
+
+                // move right pointer until it should be moved (it is smaller than pivot)
+                while (array[right] > pivot) {
+                    right--;
+                }
+
+                // swap
+                const temp = array[left];
+                array[left] = array[right];
+                array[right] = temp;
+                that.setState({
+                    array: array,
+                    comparingIndexes: [array[left], array[right]]
+                });
+                comparisonCount++;
+                await this.sleep(10);
+            }
+
+            // return the new seperation point
+            return right;
+        }
+
+        const array = this.state.array;
+        const oldArray = this.state.array.slice(0);
+        await sortItQuick(array, 0, array.length - 1);
+        this.setState({comparingIndexes: []});
+        console.log("ended with comparison count of : ", comparisonCount);
+        this.setState({array: oldArray}, this.quickSort);
+    }
+
     async quickSort() {
+        let comparisons = 0;
         const that = this;
         const array = this.state.array;
         await qSort(array, 0, array.length - 1); // just added this.
-
+        console.log("quick sort comparisons: ", comparisons);
         async function qSort(array, low, high) {
             // implement quick sort here
             if (low < high) {
@@ -79,9 +134,9 @@ class SortPage extends Component {
                     array[index] = array[curr];
                     array[curr] = temp;
                     that.setState({ array: array });
-                    await that.sleep(50);
                 }
-
+                await that.sleep(10);
+                comparisons++;
             }
             // if array[index] is greater than pivot, we gotta swap
             // swap i + 1 and upper bound element
@@ -112,10 +167,11 @@ class SortPage extends Component {
                         sortType2 = "Quick Sort" />
                     {/* <div>sortType1.addEventListener();</div> */}
                     <Controls 
-                        someSort = {this.quickSort} 
+                        someSort = {this.newQuickSort} 
                         someSort2 = {this.bubbleSort} 
                         shuffleInSort = {this.shuffleArray}/>
-                    <Graph 
+                    <Graph
+                        highlight={this.state.comparingIndexes}
                         array={this.state.array} />
                 </section>
             </div>
