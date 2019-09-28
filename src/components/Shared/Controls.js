@@ -1,23 +1,31 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
-//import './index.css';
-//import App from './App';
-// import registerServiceWorker from './registerServiceWorker.js';
+import Dropdown from './Dropdown.js';
 
 class Controls extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-};
-  render() {
-    return (
-      <div id="parent">
-        <button onClick={this.props.someSort}>Sort!</button>
-        <button onClick={this.props.shuffleInSort}>Shuffle!</button>
-      </div>
-    );
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            selectedSort: "quickSort"
+        };
+    }
+
+    render() {
+        return (
+            <div style={{
+                display: "flex",
+                paddingTop: 10,
+                paddingBottom: 10
+            }}>
+                <Dropdown
+                    onChange={(e) => this.setState({selectedSort: e.target.value})}
+                    selected={this.state.selectedSort}
+                    options={["bubbleSort", "quickSort"]} />
+                
+                <button onClick={() => this.props.handleSort(this.state.selectedSort)}>Sort</button>
+                <button onClick={this.props.handleShuffle}>Shuffle!</button>
+            </div>
+        );
+    }
 }
 
 export default Controls;

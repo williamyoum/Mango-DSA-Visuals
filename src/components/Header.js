@@ -28,9 +28,9 @@ function Header() {
       <div style={titleStyle}>Mango</div>
       {/* fix whitespacing later */}
       &nbsp; 
-      <div style = {titleStyle}><Link to="/Sort">Sorting Algo's</Link></div>
+      <div style = {titleStyle}><Link to="/sort">Sorting Algo's</Link></div>
       &nbsp;
-      <div style = {titleStyle}><Link to="/Graph">Graphing Algo's</Link> </div>
+      <div style = {titleStyle}><Link to="/graph">Graphing Algo's</Link> </div>
       &nbsp;
     </nav>
   );
