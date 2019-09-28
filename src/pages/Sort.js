@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 // import Slider from '../components/Slider';
-// import Controls from '../components/Shared/Controls';
+import Controls from '../components/Shared/Controls';
 import Graph from '../components/Graph';
+import Dropdown from '../components/Shared/Dropdown';
 
 class SortPage extends Component {
     constructor(props) {
@@ -104,34 +105,18 @@ class SortPage extends Component {
     render() {
         return (
             <div>
-                <div>
-                    {/* <Slider
-                        value={this.state.selectedArraySize}
-                        handleChange={this.handleSliderChange} /> */}
-                </div>
-                {/* onClick of dropdownlist... 
-                        if the bubble sort was clicked,
-                        then make the chosenSort = bubbleSort */}
-                {/* onClick of dropdownlist... 
-                        if the quick sort was clicked,
-                        then make the chosenSort = quickSort */}     
-                {/* This button is structured this way because the sorts are in one component */}
-                {/* <div>
-                    const chosenSort;
-                    if(selected == #action1){
-                        chosenSort = this.bubbleSort;
-                    }
-                    else{
-                        chosenSort = this.quickSort;
-                    }
-                </div> */}
-                {/* move these to controls.
-                <button onClick={this.quickSort}>Sort!</button>
-                <button onClick={this.shuffleArray}>Let's Shuffle!</button> */}
-                {/* <button onClick={this.bubbleSort}>click for bubbleSort</button> */}
                 <section>
-                    {/* <Controls /> */}
-                    <Graph array={this.state.array} />
+                    <Dropdown 
+                        pageType = "Sorting Algo's" 
+                        sortType1 = "Bubble Sort" 
+                        sortType2 = "Quick Sort" />
+                    {/* <div>sortType1.addEventListener();</div> */}
+                    <Controls 
+                        someSort = {this.quickSort} 
+                        someSort2 = {this.bubbleSort} 
+                        shuffleInSort = {this.shuffleArray}/>
+                    <Graph 
+                        array={this.state.array} />
                 </section>
             </div>
         )

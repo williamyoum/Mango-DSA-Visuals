@@ -1,5 +1,5 @@
 import React from 'react';
-import Bar from '../Bar.js';
+import Bar from '../Bar/Bar.js/index.js';
 import './Graph.css';
 
 class Sort extends React.Component {

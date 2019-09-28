@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import mango from '../mango.svg'
-import Controls from '../components/Shared/Controls'
+// import Controls from '../components/Shared/Controls'
 
 function Header() {
   const navStyle = {
@@ -14,7 +14,7 @@ function Header() {
     marginBottom: '10px'
   }
   const logoStyle = {
-    height: '100%',
+    height: '75px',
     marginRight: '20px'
   }
   const titleStyle = {
@@ -24,14 +24,14 @@ function Header() {
   
   return (
     <nav style={navStyle}>
-      <a href="/">
-        <img style={logoStyle} src={mango} alt="Logo" />
-        
-      </a>
+      <Link to="/"><img style={logoStyle} src={mango} alt="Logo" /></Link>
       <div style={titleStyle}>Mango</div>
-      <Link to="/Sort">Sort Algo</Link>
-      <Link to="/Graph">Graph Algo</Link>         
-      <Controls />
+      {/* fix whitespacing later */}
+      &nbsp; 
+      <div style = {titleStyle}><Link to="/Sort">Sorting Algo's</Link></div>
+      &nbsp;
+      <div style = {titleStyle}><Link to="/Graph">Graphing Algo's</Link> </div>
+      &nbsp;
     </nav>
   );
 }

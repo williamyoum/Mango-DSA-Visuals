@@ -3,25 +3,18 @@ import React from 'react';
 //import './index.css';
 //import App from './App';
 // import registerServiceWorker from './registerServiceWorker.js';
-import Dropdown from './Dropdown';
-
-// identifySort(){
-//   let someSort = this.quickSort
-// }
 
 class Controls extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+};
   render() {
     return (
       <div id="parent">
-        <div id="prompt">
-        </div>
-        <div>
-          <Dropdown>
-            <Dropdown.Item href="#/action-1">Action1</Dropdown.Item>
-          </Dropdown>
-        </div>
-        <button onClick={this.quickSort}>Sort!</button>
-        <button onClick={this.shuffleArray}>Let's Shuffle!</button>
+        <button onClick={this.props.someSort}>Sort!</button>
+        <button onClick={this.props.shuffleInSort}>Shuffle!</button>
       </div>
     );
   }
