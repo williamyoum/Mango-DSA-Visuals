@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "williamyoum.github.io/mango.git/static/css/main.36ec1a24.chunk.css",
-    "main.js": "williamyoum.github.io/mango.git/static/js/main.7531150f.chunk.js",
-    "main.js.map": "williamyoum.github.io/mango.git/static/js/main.7531150f.chunk.js.map",
-    "runtime~main.js": "williamyoum.github.io/mango.git/static/js/runtime~main.fdfb27b5.js",
-    "runtime~main.js.map": "williamyoum.github.io/mango.git/static/js/runtime~main.fdfb27b5.js.map",
-    "static/js/2.0334500e.chunk.js": "williamyoum.github.io/mango.git/static/js/2.0334500e.chunk.js",
-    "static/js/2.0334500e.chunk.js.map": "williamyoum.github.io/mango.git/static/js/2.0334500e.chunk.js.map",
-    "index.html": "williamyoum.github.io/mango.git/index.html",
-    "precache-manifest.0218bb18ea35d63363f5a0e39c8a33f3.js": "williamyoum.github.io/mango.git/precache-manifest.0218bb18ea35d63363f5a0e39c8a33f3.js",
-    "service-worker.js": "williamyoum.github.io/mango.git/service-worker.js",
-    "static/css/main.36ec1a24.chunk.css.map": "williamyoum.github.io/mango.git/static/css/main.36ec1a24.chunk.css.map",
-    "static/media/mango.svg": "williamyoum.github.io/mango.git/static/media/mango.b9f255f8.svg"
+    "main.css": "/Mango-DSA-Visuals/static/css/main.36ec1a24.chunk.css",
+    "main.js": "/Mango-DSA-Visuals/static/js/main.d44f79c5.chunk.js",
+    "main.js.map": "/Mango-DSA-Visuals/static/js/main.d44f79c5.chunk.js.map",
+    "runtime~main.js": "/Mango-DSA-Visuals/static/js/runtime~main.ef803205.js",
+    "runtime~main.js.map": "/Mango-DSA-Visuals/static/js/runtime~main.ef803205.js.map",
+    "static/js/2.0334500e.chunk.js": "/Mango-DSA-Visuals/static/js/2.0334500e.chunk.js",
+    "static/js/2.0334500e.chunk.js.map": "/Mango-DSA-Visuals/static/js/2.0334500e.chunk.js.map",
+    "index.html": "/Mango-DSA-Visuals/index.html",
+    "precache-manifest.ffbfbfb7259c417b3ac93b906b3296de.js": "/Mango-DSA-Visuals/precache-manifest.ffbfbfb7259c417b3ac93b906b3296de.js",
+    "service-worker.js": "/Mango-DSA-Visuals/service-worker.js",
+    "static/css/main.36ec1a24.chunk.css.map": "/Mango-DSA-Visuals/static/css/main.36ec1a24.chunk.css.map",
+    "static/media/mango.svg": "/Mango-DSA-Visuals/static/media/mango.b9f255f8.svg"
   }
 }
