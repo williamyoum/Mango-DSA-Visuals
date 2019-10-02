@@ -1,5 +1,7 @@
-const DEFAULT_SLEEP_MS = 10;
+// eslint-disable-next-line
+import { directive } from "@babel/types";
 
+const DEFAULT_SLEEP_MS = 10;
 const sleep = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -29,27 +31,22 @@ const sorts = {
     quick: async (array, callback) => {
         const quickSort = async (array, left, right) => {
             if (left >= right) return;
-    
             // choose pivot
             const pivot = array[right];
-            const seperation = await partition(array, left, right, pivot);
-    
-            await quickSort(array, left, seperation - 1);
-            await quickSort(array, seperation, right);
+            const separation = await partition(array, left, right, pivot);
+            await quickSort(array, left, separation - 1);
+            await quickSort(array, separation, right);
         }
-
         const partition = async (array, left, right, pivot) => {
             while (left < right) {
                 // move left pointer until it should be moved (it is bigger than pivot)
                 while (array[left] < pivot) {
                     left++;
                 }
-    
                 // move right pointer until it should be moved (it is smaller than pivot)
                 while (array[right] > pivot) {
                     right--;
                 }
-    
                 // swap
                 const temp = array[left];
                 array[left] = array[right];
@@ -62,17 +59,56 @@ const sorts = {
                 // });
                 await sleep(DEFAULT_SLEEP_MS);
             }
-    
-            // return the new seperation point
+            // return the new separation point
             return right;
         }
         await quickSort(array, 0, array.length - 1);
         callback(array);
         // this.setState({comparingIndexes: []});
+    },
+    merge: async (array, callback) => {
+        const mergeSort = (array) => {
+            // divide
+            let mid = Math.floor(array.length / 2);
+            if(array.length <= 1){
+                return array;
+            }
+            let lArray = array.slice(0, mid);
+            let rArray = array.slice(mid);
+            return mGlue(mergeSort(lArray), mergeSort(rArray));
+        }
+        const mGlue = (lArray, rArray) => {
+            // combine
+            let newArray = [];
+            let lSize = lArray.length;
+            let rSize = rArray.length;
+            let i = 0;
+            let j = 0;
+            // console.log("mGlue");
+            // placing the values in a new array in order, comparing left and right
+            while(i < lSize && j < rSize){
+                // console.log("mGlue while ");
+                if(lArray[i] < rArray[j]){
+                    newArray.push(lArray[i]);
+                    i++;
+                    // console.log("while if");
+                }
+                else{
+                    // console.log("else");
+                    newArray.push(rArray[j]);
+                    j++;
+                }
+                callback(newArray);
+            }
+            return newArray
+                .concat(lArray.slice(i))
+                .concat(rArray.slice(j)); 
+        }
+        // this is the main part i guess
+        mergeSort(array);
     }
 }
-
 export {
     createArrayWithRange,
-    sorts
+    sorts,
 };

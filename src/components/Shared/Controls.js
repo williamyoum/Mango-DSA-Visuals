@@ -19,7 +19,7 @@ class Controls extends React.Component {
                 <Dropdown
                     onChange={(e) => this.setState({selectedSort: e.target.value})}
                     selected={this.state.selectedSort}
-                    options={["bubbleSort", "quickSort"]} />
+                    options={["bubbleSort", "quickSort", "mergeSort"]} />
                 
                 <button onClick={() => this.props.handleSort(this.state.selectedSort)}>Sort</button>
                 <button onClick={this.props.handleShuffle}>Shuffle!</button>

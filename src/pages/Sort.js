@@ -38,11 +38,13 @@ class SortPage extends Component {
             case "quickSort":
                 sorts.quick(this.state.array, (array) => this.setState({array: array}));
                 break;
+            case "mergeSort":
+                sorts.merge(this.state.array, (array) => this.setState({array: array}));
+                break;
             default:
                 break;
         }
     }
-
     render() {
         return (
             <div>

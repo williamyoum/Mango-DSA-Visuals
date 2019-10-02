@@ -7,7 +7,7 @@ function Dropdown(props) {
             value={props.selected}>
             {props.options.map((element, index) => {
                 return <option 
-                    key={index} 
+                    key={index}
                     value={element}>{element}</option>
             })}
         </select>
