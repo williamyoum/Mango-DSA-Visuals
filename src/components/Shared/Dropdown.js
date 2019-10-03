@@ -3,10 +3,10 @@ import React from 'react';
 function Dropdown(props) {
     return (
         <select
-            onChange={props.onChange} 
+            onChange={props.onChange}
             value={props.selected}>
             {props.options.map((element, index) => {
-                return <option 
+                return <option
                     key={index}
                     value={element}>{element}</option>
             })}
@@ -14,5 +14,4 @@ function Dropdown(props) {
 
     );
 }
-
 export default Dropdown;

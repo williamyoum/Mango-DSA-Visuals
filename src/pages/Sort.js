@@ -14,13 +14,11 @@ class SortPage extends Component {
         // bindings
         this.handleShuffle = this.handleShuffle.bind(this);
     }
-    
     componentDidMount() {
         this.setState({
             array: this.handleShuffle(createArrayWithRange(this.state.selectedArraySize))
         });
     }
-
     handleShuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -29,7 +27,6 @@ class SortPage extends Component {
         }
         return array;
     }
-
     handleSort(sortName) {
         switch(sortName) {
             case "bubbleSort":

@@ -66,8 +66,8 @@ const sorts = {
         callback(array);
         // this.setState({comparingIndexes: []});
     },
-    merge: async (array, callback) => {
-        const mergeSort = (array) => {
+    merge: (array, callback) => {
+        const mergeSort = async (array) => {
             // divide
             let mid = Math.floor(array.length / 2);
             if(array.length <= 1){
@@ -75,9 +75,14 @@ const sorts = {
             }
             let lArray = array.slice(0, mid);
             let rArray = array.slice(mid);
-            return mGlue(mergeSort(lArray), mergeSort(rArray));
+            let mL = await mergeSort(lArray);
+            let mR = await mergeSort(rArray);
+            // if({}){
+            //     return array;
+            // }
+            return mGlue(mL, mR);
         }
-        const mGlue = (lArray, rArray) => {
+        const mGlue = async (lArray, rArray) => {
             // combine
             let newArray = [];
             let lSize = lArray.length;
@@ -99,6 +104,7 @@ const sorts = {
                     j++;
                 }
                 callback(newArray);
+                await sleep(DEFAULT_SLEEP_MS);
             }
             return newArray
                 .concat(lArray.slice(i))
