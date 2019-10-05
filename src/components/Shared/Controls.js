@@ -22,7 +22,7 @@ class Controls extends React.Component {
                 
                 <button onClick={() => this.props.handleSort(this.state.selectedSort)}>Sort</button>
                 <button onClick={this.props.handleShuffle}>Shuffle!</button>
-                <button onClick="abort = true">Stop</button>
+                <button onClick="abort = true">Pause</button>
             </div>
         );
     }
