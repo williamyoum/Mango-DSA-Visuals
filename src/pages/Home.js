@@ -7,7 +7,8 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        HOME PAGE CONTENT HERE
+        <button>
+        </button>
       </div>
 
     );

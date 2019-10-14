@@ -5,13 +5,13 @@ import mango from '../mango.svg'
 
 function Header() {
   const navStyle = {
-    display: 'flex',
+    display: "flex",
     alignItems: 'center',
     width: '100%',
     height: '100x',
-    padding: '10px',
+    padding: '5px',
     boxShadow: '0 4px 2px -2px gray',
-    marginBottom: '10px'
+    marginBottom: '10px',
   }
   const logoStyle = {
     height: '75px',
@@ -19,7 +19,7 @@ function Header() {
   }
   const titleStyle = {
     fontWeight: 'bold',
-    fontSize: '1.5rem'
+    fontSize: '1.5rem',
   }
   
   return (
@@ -28,9 +28,9 @@ function Header() {
       <div style={titleStyle}>Mango</div>
       {/* fix whitespacing later */}
       &nbsp; 
-      <div style = {titleStyle}><Link to="/sort">Sorting Algo's</Link></div>
+      <div style = {titleStyle}><Link to="/sort">SORT</Link></div>
       &nbsp;
-      <div style = {titleStyle}><Link to="/graph">Graphing Algo's</Link> </div>
+      <div style = {titleStyle}><Link to="/graph">GRAPH</Link> </div>
       &nbsp;
     </nav>
   );
